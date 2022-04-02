@@ -1,0 +1,58 @@
+{ 
+    "0" : {
+        "name" : "TJ Hockenson",
+        "num" : 88,
+        "age" : 28,
+        "rank" : 4,
+        "conf" : "NFC",
+        "div" : "NORTH",
+        "pos" : "TE",
+        "stats" : {
+            "gp" : 364, "rush_att" : 732, "rush_yds": 4020, "rush_ypc" : 8.9, "rush_tds" : 49, "fum" : 29,
+            "cmp": 364, "pass_att": 732, "pass_yds": 4020, "pass_ypa": 8.9, "pass_tds": 49, "int": 29, 
+            "gs": 364, "rec": 732, "tar": 400, "rec_yds": 920, "rec_ypc": 8.9, "rec_tds": 29        
+        }
+    }, 
+    "1" : {
+        "name" : "Jalen Waddle",
+        "num" : 17,
+        "age" : 22,
+        "rank" : 54,
+        "conf" : "AFC",
+        "div" : "EAST",
+        "pos" : "WR",
+        "stats" : {
+            "gp" : 1, "rush_att" : 732, "rush_yds": 4020, "rush_ypc" : 8.9, "rush_tds" : 49, "fum" : 29,
+            "cmp": 364, "pass_att": 732, "pass_yds": 4020, "pass_ypa": 8.9, "pass_tds": 49, "int": 29, 
+            "gs": 364, "rec": 732, "tar": 400, "rec_yds": 920, "rec_ypc": 8.9, "rec_tds": 29        
+        }
+    },
+    "2" : {
+        "name" : "Jared Goff",
+        "num" : 11,
+        "age" : 27,
+        "rank" : 52,
+        "conf" : "NFC",
+        "div" : "NORTH",
+        "pos" : "QB",
+        "stats" : {
+            "gp" : 364, "rush_att" : 732, "rush_yds": 4020, "rush_ypc" : 8.9, "rush_tds" : 49, "fum" : 29,
+            "cmp": 364, "pass_att": 732, "pass_yds": 4020, "pass_ypa": 8.9, "pass_tds": 49, "int": 90, 
+            "gs": 364, "rec": 732, "tar": 400, "rec_yds": 920, "rec_ypc": 8.9, "rec_tds": 29        
+        }
+    }, 
+    "3" : {
+        "name" : "CJ Spiller",
+        "num" : 13,
+        "age" : 90,
+        "rank" : 50,
+        "conf" : "AFC",
+        "div" : "EAST",
+        "pos" : "RB",
+        "stats" : {
+            "gp" : 1, "rush_att" : 732, "rush_yds": 4020, "rush_ypc" : 8.9, "rush_tds" : 49, "fum" : 0,
+            "cmp": 364, "pass_att": 732, "pass_yds": 4020, "pass_ypa": 8.9, "pass_tds": 49, "int": 29, 
+            "gs": 364, "rec": 732, "tar": 400, "rec_yds": 920, "rec_ypc": 8.9, "rec_tds": 29        
+        }
+    }
+}

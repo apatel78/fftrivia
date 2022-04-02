@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src='../scripts/main.js'></script>
+        <script src="../scripts/setup.js"></script>
+        <script src="../scripts/game.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    </head>
+    <body>
+        <header>
+          <h1>Fantasy Football Trivia</h1>
+          <p>Test your fantasy football knowledge!</p>
+          <button id="info_icon"><i class="fa fa-info-circle"></i></button>
+          <button id="settings_icon"><i class='fa fa-gear'></i></button>
+          <button id="stats_icon"><i class='fa fa-bar-chart'></i></button>
+        </header>
+        <div class="body">
+            <div class="stats">
+                <div class="rushing">
+                    <p class="stats_header">Rushing Stats</p>
+                    <table id="stats_table_rush">
+                    </table>
+                </div>
+                <div class="passing">
+                    <p class="stats_header">Passing Stats</p>
+                    <table id="stats_table_pass">
+                    </table>
+                </div>
+                <div class="receiving">
+                    <p class="stats_header">Receiving Stats</p>
+                    <table id="stats_table_catch">
+                    </table>
+                </div>
+            </div>
+            <div class="top">
+                <div id="count">
+                    <p id="guess_counter">0/5 Guesses Used</p>
+                    <p id="hint_counter">0/4 Hints Used</p>
+                </div>
+                <div id="searchbox">
+                    <input list="brow" id="search_bar">
+                    <datalist id="brow">
+                    </datalist>
+                    <button id="box"><i class='fa-solid fa-square-caret-right green-color'></i></button>
+                </div>
+                <div id="empty"></div>
+            </div>
+            <div class="entries">
+                <table id="entry_table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Jersey #</th>
+                        <th><button id="age_button">Age</button></th>
+                        <th><button id="rank_button">Pos Rank</button></th>
+                        <th><button id="conf_button">Conf</button></th>
+                        <th><button id="div_button">Div</button></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

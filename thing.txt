@@ -1,0 +1,45 @@
+TE:
+"5906":{"pass_2pt":1.0,"rec_yd":587.0,"rec_td_lng":141.0,"off_snp":842.0,"gs":14.0,"penalty_yd":20.0,"idp_ff":1.0,"rec_30_39":1.0,"bonus_rush_rec_yd_100":1.0,"gp":15.0,"rec_rz_tgt":18.0,"tm_off_snp":976.0,"rec_ypt":8.27,"bonus_rec_te":49.0,"rec_air_yd":310.0,"rank_ppr":100,"gms_active":15.0,"rec_ypr":11.98,"pts_half_ppr":140.6,"rec_20_29":5.0,"st_snp":18.0,"idp_tkl":2.0,"rec_0_4":10.0,"tm_def_snp":883.0,"rec_td_50p":1.0,"pos_rank_std":6,"rec":49.0,"rec_5_9":14.0,"idp_tkl_solo":2.0,"rec_drop":4.0,"rec_td":9.0,"rec_lng":285.0,"rec_td_40p":1.0,"rec_10_19":16.0,"pts_idp":7.0,"rec_tgt":71.0,"rec_yar":277.0,"tm_st_snp":284.0,"rush_yd":4.0,"rec_40p":2.0,"pos_rank_ppr":8,"pts_ppr":165.1,"bonus_rec_yd_100":1.0,"penalty":3.0,"rank_std":138,"pts_std":116.1,"rec_fd":22.0}
+
+WR:
+"3321":{"rec_yd":1239.0,"rec_td_lng":136.0,"off_snp":867.0,"gs":16.0,"rush_tkl_loss":1.0,"penalty_yd":10.0,"rec_30_39":4.0,"bonus_rush_rec_yd_200":1.0,"bonus_rush_rec_yd_100":3.0,"rush_yac":11.0,"gp":17.0,"rec_rz_tgt":23.0,"rush_tkl_loss_yd":-4.0,"tm_off_snp":1195.0,"rec_ypt":7.79,"rec_air_yd":795.0,"rank_ppr":21,"rush_rz_att":2.0,"gms_active":17.0,"rec_ypr":11.16,"pts_half_ppr":239.0,"rec_20_29":6.0,"st_snp":1.0,"idp_tkl":2.0,"rec_0_4":20.0,"tm_def_snp":1114.0,"rush_ypa":10.67,"rush_fd":4.0,"rec_td_50p":1.0,"pos_rank_std":7,"rec":111.0,"rec_5_9":41.0,"rush_att":9.0,"idp_tkl_solo":2.0,"rec_drop":7.0,"rec_td":9.0,"rush_lng":96.0,"rec_lng":400.0,"rec_td_40p":2.0,"rec_10_19":36.0,"pts_idp":4.0,"rec_tgt":159.0,"rec_yar":444.0,"tm_st_snp":359.0,"rush_yd":96.0,"rec_40p":3.0,"bonus_rec_wr":111.0,"pos_rank_ppr":6,"pts_ppr":294.5,"bonus_rec_yd_100":3.0,"penalty":2.0,"fum_lost":1.0,"rank_std":44,"fum":2.0,"pts_std":183.5,"rec_fd":66.0}
+"3321":{"rec_yd":1239.0,"rec_td_lng":136.0,"off_snp":867.0,"gs":16.0,"rush_tkl_loss":1.0,"penalty_yd":10.0,"rec_30_39":4.0,"bonus_rush_rec_yd_200":1.0,"bonus_rush_rec_yd_100":3.0,"rush_yac":11.0,"gp":17.0,"rec_rz_tgt":23.0,"rush_tkl_loss_yd":-4.0,"tm_off_snp":1195.0,"rec_ypt":7.79,"rec_air_yd":795.0,"rank_ppr":21,"rush_rz_att":2.0,"gms_active":17.0,"rec_ypr":11.16,"pts_half_ppr":239.0,"rec_20_29":6.0,"st_snp":1.0,"idp_tkl":2.0,"rec_0_4":20.0,"tm_def_snp":1114.0,"rush_ypa":10.67,"rush_fd":4.0,"rec_td_50p":1.0,"pos_rank_std":7,"rec":111.0,"rec_5_9":41.0,"rush_att":9.0,"idp_tkl_solo":2.0,"rec_drop":7.0,"rec_td":9.0,"rush_lng":96.0,"rec_lng":400.0,"rec_td_40p":2.0,"rec_10_19":36.0,"pts_idp":4.0,"rec_tgt":159.0,"rec_yar":444.0,"tm_st_snp":359.0,"rush_yd":96.0,"rec_40p":3.0,"bonus_rec_wr":111.0,"pos_rank_ppr":6,"pts_ppr":294.5,"bonus_rec_yd_100":3.0,"penalty":2.0,"fum_lost":1.0,"rank_std":44,"fum":2.0,"pts_std":183.5,"rec_fd":66.0}
+
+RB:
+"6955":{"rec_yd":222.0,"off_snp":530.0,"gs":13.0,"rush_tkl_loss":12.0,"rush_td_lng":15.0,"bonus_rush_yd_100":1.0,"bonus_rush_rec_yd_100":4.0,"rush_yac":317.0,"gp":14.0,"rec_rz_tgt":2.0,"rush_tkl_loss_yd":-19.0,"tm_off_snp":909.0,"rush_40p":1.0,"rec_ypt":4.83,"bonus_rec_rb":31.0,"rec_air_yd":-8.0,"rank_ppr":93,"rush_rz_att":24.0,"gms_active":16.0,"rec_ypr":7.16,"pts_half_ppr":154.4,"rush_btkl":11.0,"rec_20_29":1.0,"idp_tkl":3.0,"rec_0_4":4.0,"tm_def_snp":912.0,"rush_ypa":4.68,"rush_fd":33.0,"pos_rank_std":25,"rec":31.0,"idp_tkl_ast":1.0,"rec_5_9":14.0,"rush_att":164.0,"idp_tkl_solo":2.0,"rec_drop":4.0,"rush_lng":236.0,"rec_lng":122.0,"rec_10_19":9.0,"pts_idp":5.0,"rec_tgt":46.0,"rec_yar":230.0,"tm_st_snp":324.0,"rush_yd":767.0,"rush_td":8.0,"pos_rank_ppr":25,"pts_ppr":169.9,"fum_lost":2.0,"rank_std":98,"fum":4.0,"pts_std":138.9,"rec_fd":9.0}
+
+QB:
+"167":{"pass_air_yd":2762.0,"pass_int":12.0,"pass_lng":679.0,"pass_td_50p":3.0,"off_snp":1088.0,"gs":17.0,"cmp_pct":1144.91,"rush_td_lng":2.0,"penalty_yd":5.0,"pass_fd":226.0,"rush_yac":14.0,"gp":17.0,"pass_sack":22.0,"tm_off_snp":1123.0,"pass_td_40p":6.0,"pass_td_lng":417.0,"rank_ppr":4,"bonus_pass_cmp_25":12.0,"rush_rz_att":8.0,"gms_active":17.0,"pass_cmp":485.0,"pts_half_ppr":382.74,"pass_rtg":1732.4,"pass_rz_att":120.0,"pass_sack_yds":144.0,"tm_def_snp":1061.0,"rush_ypa":2.89,"rush_fd":12.0,"bonus_pass_yd_300":6.0,"pass_att":719.0,"pos_rank_std":3,"pass_inc":234.0,"pass_cmp_40p":10.0,"pass_ypa":7.39,"rush_att":28.0,"rush_lng":78.0,"tm_st_snp":428.0,"rush_yd":81.0,"bonus_pass_yd_400":3.0,"pass_int_td":2.0,"pass_yd":5316.0,"pass_td":43.0,"rush_td":2.0,"pos_rank_ppr":3,"pts_ppr":382.74,"penalty":1.0,"fum_lost":3.0,"rank_std":3,"fum":4.0,"pts_std":382.74,"pass_ypc":10.96}
+
+Player: 
+"5906":{"years_exp":3,"search_full_name":"dawsonknox","search_first_name":"dawson","player_id":"5906","swish_id":884083,"practice_participation":null,"search_rank":94,"sport":"nfl","first_name":"Dawson","yahoo_id":31928,"birth_city":null,"metadata":{"injury_override_regular_2021_7":"Doubtful"},"high_school":"Brentwood Academy (TN)","team":"BUF","age":25,"hashtag":"#dawsonknox-NFL-BUF-88","pandascore_id":null,"last_name":"Knox","birth_date":"1996-11-14","sportradar_id":"5fb525c5-4e70-4ede-8c49-94ad0cf66b7d","status":"Active","gsis_id":" 00-0035689","full_name":"Dawson Knox","birth_state":null,"position":"TE","injury_start_date":null,"weight":"254","number":88,"search_last_name":"knox","stats_id":884083,"depth_chart_position":"TE","fantasy_positions":["TE"],"injury_status":null,"injury_notes":null,"fantasy_data_id":20850,"injury_body_part":null,"news_updated":1645812338057,"depth_chart_order":1,"college":"Ole Miss","practice_description":null,"height":"76","birth_country":null,"rotowire_id":13466,"active":true,"espn_id":3930086,"rotoworld_id":13953},
+
+Stats by group:
+Passing: Completions | Attempts | Yards | YPA | TDs | INTs
+Rushing: GP | Attempts | Yards | YPC | TDs | FUMs
+Recieveing: Starts | Catches | Targets | Yards | YPC | TDs                                                                                                                                           
+
+Stats by position:
+QB: Passing, Rushing
+RB: Recieveing, Rushing
+WR: Recieveing, Rushing
+TE: Recieveing, Rushing
+
+Things to Pull:
+CHECK ACTIVE TRUE AND SOME RANK CONDITION
+Name: Player fullname
+Team: Player
+Position: Player
+Div: ??
+Conf: ??
+Jersey #: Player
+PPR Rank: Stats
+Age: Player
+
+Rank Conditions:
+QB: Top for every team
+RB: Top 50 PPR
+WR: Top 80 PPR
+TE: Top for every team
+
+
