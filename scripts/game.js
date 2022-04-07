@@ -6,8 +6,15 @@ let num_guesses = 0;
 
 let color_list = [];
 let guesses = [];
+let prev_players = [];
 
 let game_ended = false;
+
+
+// 0 Means unknown, 1 means game lost, 2 means game won
+let game_won = 0;
+
+let streak = 0;
 
 //Process a Guess
 function updateGuesses(player_name, random_player) {
@@ -15,59 +22,75 @@ function updateGuesses(player_name, random_player) {
     $.ajaxSetup({
       async: false
     });
-    let guessed_player;
+    let guessed_player = null;
     $.getJSON('../data/players.json',function(data){
-      $.each(data,function(i,player){
-        if (player.name == player_name) {
-          guessed_player = player;
-        }
-      });
+      if (data[player_name]) {
+        guessed_player = data[player_name];
+      }
     });
     $.ajaxSetup({
       async: true
     });
 
+    if (guessed_player == null) {
+      return;
+    }
     //Check if this player was guessed before
-    for(let i = 0; i < num_guesses; i++) {
+    if (guesses) {
+      for(let i = 0; i < guesses.length; i++) {
         if (player_name === guesses[i]["name"]) {
             return;
         }
+      }
     }
 
     //If the guess was valid
-    if (!(guessed_player == null)) {
-        num_guesses = num_guesses + 1;
-        updateHintGuessCount();
-      //Find out what color each tile should be
-      colors = checkGuessedPlayer(random_player, guessed_player);
-      color_list.push(colors);
-      guesses.push(guessed_player);
-      //Create and append the guess
-      guess_div = createGuessDiv(player_name, guessed_player.num, guessed_player.age, guessed_player.rank, guessed_player.conf, guessed_player.div, num_guesses, colors);
-      $("#entry_table").append(guess_div);  
-      //Update tile colors
-      updateTileColors(colors, num_guesses);
-    }
+    num_guesses = num_guesses + 1;
+    localStorage.setItem('num_guesses', num_guesses);
+    updateHintGuessCount();
+    //Find out what color each tile should be
+    colors = checkGuessedPlayer(random_player, guessed_player);
+    color_list.push(colors);
+    localStorage.setItem('color_list', JSON.stringify(color_list));
+    var guess = {
+      "name": guessed_player.name,
+      "num": guessed_player.num,
+      "age":guessed_player.age,
+      "rank": guessed_player.rank, 
+      "conf": guessed_player.conf,
+      "div": guessed_player.div
+    };
+    guesses.push(guess);
+    localStorage.setItem('guesses', JSON.stringify(guesses));
+    //Create and append the guess
+    guess_div = createGuessDiv(player_name, guessed_player.num, guessed_player.age, guessed_player.rank, guessed_player.conf, guessed_player.div, num_guesses, colors);
+    $("#entry_table").append(guess_div);  
+    //Update tile colors
+    preAnimateGuess(colors, num_guesses);
+    animateGuess(colors, num_guesses);
+    updateTileColors(colors, num_guesses);
   }
   
   //Figure out what color every tile should be
   function checkGuessedPlayer(random_player, guessed_player) {
     //If the guess was correct
-    if (random_player === guessed_player) {
+    if (random_player.id === guessed_player.id) {
       hint_one = true;
       hint_two = true;
       hint_three = true;
       hint_four = true;
-      return ['green', 0];
+      game_ended = true;
+      game_won = 2;
+      return ['rgba(30, 158, 0, 0.75)', 0];
     }
 
-    //If any of the guesses were correct set to green otherwise set to gray
-    name_matches = random_player.name === guessed_player.name ? 'green' : 'gray';
-    num_matches = random_player.num === guessed_player.num ? 'green' : 'gray';
-    age_matches = random_player.age === guessed_player.age ? 'green' : 'gray';
-    rank_matches = random_player.rank === guessed_player.rank ? 'green' : 'gray';
-    conf_matches = random_player.conf === guessed_player.conf ? 'green' : 'gray';
-    div_matches = random_player.div === guessed_player.div ? 'green' : 'gray';
+    //If any of the guesses were correct set to rgba(30, 158, 0, 0.75) otherwise set to rgba(238, 238, 238, 0.5)
+    name_matches = random_player.name === guessed_player.name ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
+    num_matches = random_player.num === guessed_player.num ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
+    age_matches = random_player.age === guessed_player.age ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
+    rank_matches = random_player.rank === guessed_player.rank ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
+    conf_matches = random_player.conf === guessed_player.conf ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
+    div_matches = random_player.div === guessed_player.div ? 'rgba(30, 158, 0, 0.75)' : 'rgba(238, 238, 238, 0.5)';
 
     //Prevent min from being negative
     if (random_player.num < 3) {
@@ -90,19 +113,19 @@ function updateGuesses(player_name, random_player) {
     }
 
     //Figure out if a tile should be yellow
-    if (num_matches === 'gray') {
+    if (num_matches === 'rgba(238, 238, 238, 0.5)') {
       if (between(guessed_player.num, min_num, random_player.num + 3)) {
-        num_matches = 'yellow';
+        num_matches = 'rgba(243, 225, 90, 0.75)';
       }
     }
-    if (age_matches === 'gray') {
+    if (age_matches === 'rgba(238, 238, 238, 0.5)') {
       if (between(guessed_player.age, min_age, random_player.age + 3)) {
-        age_matches = 'yellow';
+        age_matches = 'rgba(243, 225, 90, 0.75)';
       }
     }
-    if (rank_matches === 'gray') {
+    if (rank_matches === 'rgba(238, 238, 238, 0.5)') {
       if (between(guessed_player.rank, min_rank, random_player.rank + 3)) {
-        rank_matches = 'yellow';
+        rank_matches = 'rgba(243, 225, 90, 0.75)';
       }
     }
 
@@ -116,13 +139,16 @@ function updateGuesses(player_name, random_player) {
 
   //Update the Color of the tiles
   function updateTileColors(colors, num_guesses) {
-    if (colors.length === 2) {
-      $("#table_name" + num_guesses).css("background-color","green");
-      $("#table_num" + num_guesses).css("background-color","green");
-      $("#table_age" + num_guesses).css("background-color","green");
-      $("#table_rank" + num_guesses).css("background-color","green");
-      $("#table_conf" + num_guesses).css("background-color","green");
-      $("#table_div" + num_guesses).css("background-color","green");
+    if (!colors) {
+      return;
+    }
+    if (colors.length == 2) {
+      $("#table_name" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
+      $("#table_num" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
+      $("#table_age" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
+      $("#table_rank" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
+      $("#table_conf" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
+      $("#table_div" + num_guesses).css("background-color","rgba(30, 158, 0, 0.75)");
     }
     else {
       $("#table_name" + num_guesses).css("background-color",colors[0]);
@@ -154,9 +180,14 @@ function updateGuesses(player_name, random_player) {
   }
 
   //Check if the game is over or not
-  function updateGameState() {
-    if (num_guesses === MAX_GUESS) {
-        game_ended = true;
+  function updateGameState(random_player) {
+    if (num_guesses >= MAX_GUESS) {
+        if(!(game_won === 2)) {
+          game_won = 1;
+        }
+    }
+    if (!(game_won === 0)) {
+      endGame(random_player);
     }
   }
 
@@ -164,4 +195,49 @@ function updateGuesses(player_name, random_player) {
   function updateHintGuessCount() {
       $("#guess_counter").text(num_guesses + "/5 Guesses Used");
       $("#hint_counter").text(num_hints + "/4 Hints Used");
+  }
+
+  function preAnimateGuess(colors, num_guesses) {
+    $("#table_name" + num_guesses).animate({
+      "visibility" : "hidden",
+      "opactiy" : 0,
+      "transition": "visibility 0s, opacity 0.5s linear"
+    });
+  }
+
+  function animateGuess(colors, num_guesses) {
+    $("#table_name" + num_guesses).animate({
+      "visibility" : "visible",
+      "opactiy" : 1,
+    });
+  }
+
+  function endGame() {
+    //Display correct player
+    console.log(random_player);
+
+    //Adjust Local storage accordingly
+    localStorage.setItem('num_hints', 0);
+    localStorage.setItem('num_guesses', 0);
+    localStorage.setItem('color_list', []);
+    localStorage.setItem('guesses', []);
+    localStorage.setItem('prev_players', []);
+
+    localStorage.setItem('hint_one', false);
+    localStorage.setItem('hint_two', false);
+    localStorage.setItem('hint_three', false);
+    localStorage.setItem('hint_four', false);
+
+    localStorage.setItem('fp_game', false);
+
+    clearInterval(game_interval);
+
+    if (game_won === 2) {
+      streak = streak + 1;
+    }
+    else if(game_won === 1) {
+      streak = 0;
+    }
+    $("#streak_counter").text(streak + " Correct");
+
   }

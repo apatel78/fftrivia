@@ -43,3 +43,13 @@ WR: Top 80 PPR
 TE: Top for every team
 
 
+TODO:
+Animations for entering a player
+Streak Counter
+New Header Buttons
+Next Game Actually
+Modals
+
+
+Implement newgame Button
+Implement next button

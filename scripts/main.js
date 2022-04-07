@@ -5,85 +5,120 @@ let hint_four = false;
 
 var random_player;
 
+let game_interval;
+
 $(document).ready( function() {
+  //localStorage.clear();
+  //Load all the players into the search bar
+  loadPlayers();
 
-    // TODO: Event Handlers for header buttons
-    updatePlayers();
+  //TODO: Load local storage
 
-    // TODO: Return a random player entry
-    $.ajaxSetup({
-      async: false
-    });    
-    $.getJSON('../data/players.json',function(data){
-      random_player = data[Math.floor(Math.random() * Object.keys(data).length)];
-    });
-    $.ajaxSetup({
-      async: true
-    });
+  //Start Game
+  random_player = localStorageHandler();
 
-    $("#age_button").one('click', () => {
-      hint_one = true;
-      num_hints = num_hints + 1;
-      num_guesses = num_guesses + 1;
-      updateHintGuessCount();
-      updatePreviousTiles("#table_age", "age");
-    });
-    $("#rank_button").one('click', () => {
-      hint_two = true;
-      num_hints = num_hints + 1;
-      num_guesses = num_guesses + 1;
-      updateHintGuessCount();
-      updatePreviousTiles("#table_rank", "rank");
-    });
-    $("#conf_button").one('click', () => {
-      hint_three = true;
-      num_hints = num_hints + 1;
-      num_guesses = num_guesses + 1;
-      updateHintGuessCount();
-      updatePreviousTiles("#table_conf", "conf");
-    });
-    $("#div_button").one('click', () => {
-      hint_four = true;
-      num_hints = num_hints + 1;
-      num_guesses = num_guesses + 1;
-      updateHintGuessCount();
-      updatePreviousTiles("#table_div", "div");
-    });
-
-    // TODO: Load in Players for input
-    loadPlayers();
-
-    // TODO: Update Statistics
-    updateStatistics(random_player);
-
-
-    // TODO: Keyboard Event Handlers
-
-    // Check Gamestate
-    game_interval = setInterval(updateGameState, 1); 
-
-    // TODO: Submit Button Event Handler
-    $("#box").click( () => {
-        if (!game_ended) {
-          updateGuesses($('#search_bar').val(), random_player);
-        }
-    });
-  
+  $('#settings_icon').click( () => {
+    endGame(random_player);
+    game_won = 0;
+    window.location = window.location;
+    startGame();
   });
 
+  $('#stats_icon').click( () => {
+    if (game_won === 2) {
+      game_won = 0;
+      window.location = window.location;
+      startGame();
+    }
+  });
+
+  $('#info_icon').click( () => {
+    $("#info_modal").modal('show');
+  });
+
+  $('#info_close').click ( () => {
+    $("#info_modal").modal('hide');
+  });
+  
+  //Button Handlers
+  $("#age_button").one('click', () => {
+    if (num_guesses + 1 < MAX_GUESS) {
+      hint_one = true;
+      localStorage.setItem('hint_one', hint_one);
+      num_hints = num_hints + 1;
+      num_guesses = num_guesses + 1;
+      localStorage.setItem('num_hints', num_hints);
+      localStorage.setItem('num_guesses', num_guesses);
+      updateHintGuessCount();
+      updatePreviousTiles("#table_age", "age");
+    }
+  });
+
+  $("#rank_button").one('click', () => {
+    if (num_guesses + 1 < MAX_GUESS) {
+      hint_two = true;
+      localStorage.setItem('hint_two', hint_two);
+      num_hints = num_hints + 1;
+      num_guesses = num_guesses + 1;
+      localStorage.setItem('num_hints', num_hints);
+      localStorage.setItem('num_guesses', num_guesses);
+      updateHintGuessCount();
+      updatePreviousTiles("#table_rank", "rank");
+    }
+  });
+
+  $("#conf_button").one('click', () => {
+    if (num_guesses + 1 < MAX_GUESS) {
+      hint_three = true;
+      localStorage.setItem('hint_three', hint_three);
+      num_hints = num_hints + 1;
+      num_guesses = num_guesses + 1;
+      localStorage.setItem('num_hints', num_hints);
+      localStorage.setItem('num_guesses', num_guesses);
+      updateHintGuessCount();
+      updatePreviousTiles("#table_conf", "conf");
+    }
+  });
+
+  $("#div_button").one('click', () => {
+    if (num_guesses + 1 < MAX_GUESS) {
+      hint_four = true;
+      localStorage.setItem('hint_four', hint_four);
+      num_hints = num_hints + 1;
+      num_guesses = num_guesses + 1;
+      localStorage.setItem('num_hints', num_hints);
+      localStorage.setItem('num_guesses', num_guesses);
+      updateHintGuessCount();
+      updatePreviousTiles("#table_div", "div");
+    }
+  });
+  
+});
+
   function updatePreviousTiles(hint, value) {
-    for(let i = 0; i < num_guesses; i++) {
-      updateTileColors(color_list[i], i + 1);
-      new_val = guesses[i][value];
-      $(hint + (i + 1)).text(new_val);
+    if(!(guesses.length === 0)) {
+      for(let i = 0; i < guesses.length; i++) {
+        updateTileColors(color_list[i], i + 1);
+        if(guesses[i][value]) {
+          new_val = guesses[i][value];
+        }
+        $(hint + (i + 1)).text(new_val);
+      }
     }
   }
 
   /*
   ** TODO:
-  ** Pull players
-  ** Daily and freeplay mode
-  ** header buttons
-  ** keyboard event handlers
+  ** Daily gamemode:
+  ** One random player a day
+  ** LOCAL STORAGE: gamemode, game_state, load guesses hints counter, which hint used
+
+
+  ** Make first two hints free?
+  ** Freeplay mode
+  ** Daily mode
   ** design
+  ** Header button modals
+  ** Easily sortable input list
+  ** Add a timer
   */

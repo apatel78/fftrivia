@@ -2,63 +2,83 @@
 <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src='../scripts/main.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="../scripts/main.js"></script>
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/game.js"></script>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo">
     </head>
     <body>
         <header>
           <h1>Fantasy Football Trivia</h1>
-          <p>Test your fantasy football knowledge!</p>
           <button id="info_icon"><i class="fa fa-info-circle"></i></button>
           <button id="settings_icon"><i class='fa fa-gear'></i></button>
           <button id="stats_icon"><i class='fa fa-bar-chart'></i></button>
         </header>
         <div class="body">
+          <div class="formWrapper">
             <div class="stats">
-                <div class="rushing">
-                    <p class="stats_header">Rushing Stats</p>
-                    <table id="stats_table_rush">
-                    </table>
-                </div>
-                <div class="passing">
-                    <p class="stats_header">Passing Stats</p>
-                    <table id="stats_table_pass">
-                    </table>
-                </div>
-                <div class="receiving">
-                    <p class="stats_header">Receiving Stats</p>
-                    <table id="stats_table_catch">
-                    </table>
-                </div>
+                <table id="stats_table">
+                </table>
             </div>
             <div class="top">
-                <div id="count">
-                    <p id="guess_counter">0/5 Guesses Used</p>
-                    <p id="hint_counter">0/4 Hints Used</p>
-                </div>
-                <div id="searchbox">
-                    <input list="brow" id="search_bar">
-                    <datalist id="brow">
-                    </datalist>
-                    <button id="box"><i class='fa-solid fa-square-caret-right green-color'></i></button>
-                </div>
-                <div id="empty"></div>
+                  <div id="count">
+                      <p id="guess_counter">0/5 Guesses Used</p>
+                      <p id="hint_counter">0/4 Hints Used</p>
+                      <p id="streak_counter">0 Correct</p>
+                  </div>
+                  <div id="searchbox">
+                    <div class="searchbox-inner">
+                      <input list="brow" id="search_bar">
+                      <datalist id="brow">
+                      </datalist>
+                      <button id="box">
+                        <i class='fa-solid fa-square-caret-right green-color'></i>
+                      </button>
+                    </div>
+                  </div>
+              </div>  
             </div>
+          
             <div class="entries">
                 <table id="entry_table">
                     <tr>
                         <th>Name</th>
                         <th>Jersey #</th>
                         <th><button id="age_button">Age</button></th>
-                        <th><button id="rank_button">Pos Rank</button></th>
+                        <th><button id="rank_button">Rank</button></th>
                         <th><button id="conf_button">Conf</button></th>
                         <th><button id="div_button">Div</button></th>
                     </tr>
                 </table>
+            </div>
+            <div id="info_modal" class="modal">
+              <div class="info-content">
+                <span class="close" id="info_close">&times;</span>
+                <p class="info_text_top">Guess the NFL Player in a Wordle style gamemode</p>
+                <p class="info_text_top">All player information is from the 2021 season</p>
+                <p class="info_text_top">Each guess must be from the pre-selected player list. Hit the green button to guess</p>
+                <p class="info_text_top">After each guess, each tile will turn either gray (incorrect), yellow (within 3 numbers), or green (correct)</p>
+                <h2 class="info_header">Hints</h2>
+                <p class="info_hint_text">A column may display a question mark, indicating a hint column</p>
+                <p class="info_hint_text"></p>Hints can be used by clicking on the column name</p>
+                <p class="info_hint_text">Using a hint counts as a guess</p>
+                <div class="info_players">
+                  <p class="info_players_text">Age</p>
+                  <p class="info_players_text">PPR Position Rank</p>
+                  <p class="info_players_text">Conference</p>
+                  <p class="info_players_text">Division</p>
+                </div>
+                <h2 class="info_header">Player Difficulty (PPR)</h2>
+                <div class="info_players">
+                  <p class="info_players_text">QB & TE: Top 32</p>
+                  <p class="info_players_text">RB: Top 50</p>
+                  <p class="info_players_text">WR: Top 80</p>
+                </div>
+              </div>
             </div>
         </div>
     </body>
